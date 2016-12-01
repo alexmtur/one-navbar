@@ -1,0 +1,72 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../one-link/one-link.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+
+<dom-module id="one-navbar-item">
+    <template>
+        <style>
+            #content {
+                /*background-color: var(--main-bg-color);*/
+                /* apply a mixin */
+                /*@apply(--my-toolbar-theme);*/
+                /*height: 30px;*/
+                /*border-radius:15px;*/
+                /*background: white;*/
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            #text {
+                /*font-size: 80%;*/
+            }
+
+            iron-icon {
+                display: flex;
+                width: var(--one-icon-size, 30px);
+                height: auto;
+                margin: 0;
+                /*border: solid 2px white;*/
+                /*border-radius: 30px;*/
+                /*padding: 5px;*/
+            }
+            iron-icon[hidden] {
+                display: none;
+            }
+        </style>
+
+
+        <one-link href={{url}}>
+            <div id="content">
+                <iron-icon icon="{{icon}}" hidden$="[[hideIcon]]"></iron-icon>
+                <div id="text">
+                    <content></content>
+                </div>
+            </div>
+        </one-link>
+
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'one-navbar-item',
+            properties: {
+                url: {
+                    type: String,
+                },
+                icon: {
+                    type: String
+                },
+                iconPosition: {
+                    type: String,
+                    value: "left"
+                }
+            },
+            attached: function() {
+                if(this.icon) this.hideIcon = false;
+                else this.hideIcon = true;
+            }
+        });
+    </script>
+</dom-module>

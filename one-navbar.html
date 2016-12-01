@@ -1,0 +1,56 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="one-navbar">
+    <template>
+        <style>
+            :host > * {
+                background: var(--one-background, #333);
+                /*background: inherit;*/
+            }
+            #content {
+                height: 60px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+            one-navbar-item {
+                /*color: green;*/
+            }
+        </style>
+
+        <div id="content">
+            <slot></slot>
+        </div>
+        <!--<div id="content-small" hidden$="true">-->
+            <!--Small!-->
+            <!--<slot></slot>-->
+        <!--</div>-->
+    </template>
+
+    <script>
+        Polymer({
+            is: 'one-navbar',
+            properties: {
+                sticky: {
+                    type: Boolean,
+                    value: false,
+                },
+                vertical: {
+                    type: Boolean,
+                    value: false,
+                },
+                mobileWidth: {
+                    type: Number,
+                    value: 0,
+                },
+                icon: {
+                    type: String
+                },
+                iconPosition: {
+                    type: String,
+                    value: "left"
+                }
+            },
+        });
+    </script>
+</dom-module>
