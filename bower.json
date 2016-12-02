@@ -15,10 +15,10 @@
     "tests"
   ],
     "dependencies": {
-        "jquery": ">=1.10.2",
-        "underscore": "~1.5.2"
+        "one-link": "latest",
+        "app-route": "polymerelements/app-route#^0.9.1",
+        "polymer": "Polymer/polymer#^1.7.1",
     },
     "devDependencies": {
-        "jquery-mockjax": "~1.5.2"
     }
 }
