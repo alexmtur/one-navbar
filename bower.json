@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "one-link": "alexmtur/one-link#^1.0.0",
+    "one-link": "^1.0.0",
     "polymer": "Polymer/polymer#^1.2",
   }
 }
