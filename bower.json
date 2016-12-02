@@ -1,0 +1,20 @@
+{
+  "name": "one-navbar",
+  "homepage": "https://github.com/alexmtur/one-navbar",
+  "authors": [
+    "Alex Martin <alexmartinturrillas@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "one-link": "alexmtur/one-link#^1.0.0",
+  }
+}
