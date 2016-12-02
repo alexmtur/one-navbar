@@ -13,5 +13,12 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+    "dependencies": {
+        "jquery": ">=1.10.2",
+        "underscore": "~1.5.2"
+    },
+    "devDependencies": {
+        "jquery-mockjax": "~1.5.2"
+    }
 }
