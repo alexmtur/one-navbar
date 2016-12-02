@@ -1,6 +1,5 @@
 {
   "name": "one-navbar",
-  "version": "1.0.1",
   "homepage": "https://github.com/alexmtur/one-navbar",
   "authors": [
     "Alex Martin <alexmartinturrillas@gmail.com>"
@@ -14,9 +13,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  // "dependencies": {
-  //   "one-link": "^1.0.0",
-  //   "polymer": "Polymer/polymer#^1.2",
-  // }
+  ]
 }
