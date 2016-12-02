@@ -14,8 +14,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "one-link": "^1.0.0",
-    "polymer": "Polymer/polymer#^1.2",
-  }
+  // "dependencies": {
+  //   "one-link": "^1.0.0",
+  //   "polymer": "Polymer/polymer#^1.2",
+  // }
 }
