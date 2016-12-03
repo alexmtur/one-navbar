@@ -15,9 +15,9 @@
     "tests"
   ],
     "dependencies": {
-        "one-link": "latest",
-        "app-route": "polymerelements/app-route#^0.9.1",
-        "polymer": "Polymer/polymer#^1.7.1",
+      "polymer": "Polymer/polymer#latest",
+      "app-route": "polymerelements/app-route#latest",
+      "one-link": "latest"
     },
     "devDependencies": {
     }
