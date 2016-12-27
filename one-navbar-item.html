@@ -6,19 +6,13 @@
     <template>
         <style>
             #content {
-                /*background-color: var(--main-bg-color);*/
-                /* apply a mixin */
-                /*@apply(--my-toolbar-theme);*/
-                /*height: 30px;*/
-                /*border-radius:15px;*/
-                /*background: white;*/
                 display:flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
             }
             #text {
-                /*font-size: 80%;*/
+                font-size: 120%;
             }
 
             iron-icon {
@@ -26,16 +20,16 @@
                 width: var(--one-icon-size, 30px);
                 height: auto;
                 margin: 0;
-                /*border: solid 2px white;*/
-                /*border-radius: 30px;*/
-                /*padding: 5px;*/
             }
             iron-icon[hidden] {
                 display: none;
             }
+            li {
+                padding: 5px;
+            }
         </style>
 
-
+        <li>
         <one-link href={{url}}>
             <div id="content">
                 <iron-icon icon="{{icon}}" hidden$="[[hideIcon]]"></iron-icon>
@@ -44,7 +38,7 @@
                 </div>
             </div>
         </one-link>
-
+        </li>
 
     </template>
 

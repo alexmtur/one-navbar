@@ -1,30 +1,94 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <dom-module id="one-navbar">
     <template>
         <style>
             :host > * {
                 background: var(--one-background, #333);
-                /*background: inherit;*/
+                width: 100%;
+                z-index: 100;
+            }
+            :host([sticky]) > *{
+                position: fixed;
+            }
+            @media only screen and (max-width: 768px) {
+                :host([mobile]) #content {
+                    opacity: 1;
+                    transition: max-height .6s;
+                    max-height: 100vh;
+                    flex-direction: column !important;
+                }
+                :host([hide][mobile]) #content {
+                    max-height: 0px;
+                    opacity: 0;
+                    scale: 0;
+                    /*display: none;*/
+                }
+                :host([hide][mobile]) #close {
+                    display: none;
+                }
+                :host([hide][mobile]) #menu {
+                    display: block;
+                }
+                :host([mobile]) #close {
+                    display: block;
+                }
+                :host([mobile]) #navbar {
+                    display: block;
+                    /*flex: 1;*/
+                }
             }
             #content {
-                height: 60px;
                 display: flex;
+                flex:1;
                 justify-content: space-around;
                 align-items: center;
+                flex-direction: row;
             }
-            one-navbar-item {
-                /*color: green;*/
+            a {
+                text-decoration: none !important;
             }
-        </style>
+            ul {
+                list-style:none;
+                padding:0;
+                margin:0;
+            }
+            #brand {
+                display: flex;
+                /*width: 100%;*/
+                justify-content: space-between;
+                align-items: center;
+            }
+            #brand iron-icon{
+                width: var(--one-icon-size, 30px);
+                height: auto;
+            }
+            #logo {
+                padding: 5px;
+            }
+            #menu, #close {
+                padding: 5px;
+                display: none;
+                cursor: pointer;
+            }
+            #navbar {
+                display: flex;
+            }
 
-        <div id="content">
-            <slot></slot>
-        </div>
-        <!--<div id="content-small" hidden$="true">-->
-            <!--Small!-->
-            <!--<slot></slot>-->
-        <!--</div>-->
+        </style>
+        <nav id="navbar">
+            <div id="brand">
+                <div id="logo">
+                    <slot name="logo"></slot>
+                </div>
+                <iron-icon icon="icons:menu" id="menu" on-tap="toggle"></iron-icon>
+                <iron-icon icon="icons:cross" id="close" on-tap="toggle"></iron-icon>
+            </div>
+            <ul id="content" hidden$="{{open}}">
+                <slot id="links"></slot>
+            </ul>
+        </nav>
     </template>
 
     <script>
@@ -49,8 +113,17 @@
                 iconPosition: {
                     type: String,
                     value: "left"
+                },
+                hide: {
+                    type: Boolean,
+                    value: true,
+                    notify: true,
+                    reflectToAttribute: true
                 }
             },
+            toggle: function () {
+                this.hide = !this.hide;
+            }
         });
     </script>
 </dom-module>
