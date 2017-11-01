@@ -14,12 +14,12 @@
     "test",
     "tests"
   ],
-    "dependencies": {
-      "polymer": "Polymer/polymer#latest",
-      "app-route": "polymerelements/app-route#latest",
-      "iron-icon": "polymerelements/iron-icon#latest",
-      "one-link": "latest"
-    },
-    "devDependencies": {
-    }
+  "dependencies": {
+    "polymer": "Polymer/polymer#latest",
+    "app-route": "polymerelements/app-route#latest",
+    "iron-icon": "polymerelements/iron-icon#latest",
+    "one-link": "latest",
+    "one-iconset": "latest"
+  },
+  "devDependencies": {}
 }

@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../one-link/one-link.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../one-iconset/one-iconset.html">
 
 <dom-module id="one-navbar-item">
     <template>
@@ -30,11 +31,11 @@
         </style>
 
         <li>
-        <one-link href={{url}}>
+        <one-link href="{{url}}">
             <div id="content">
                 <iron-icon icon="{{icon}}" hidden$="[[hideIcon]]"></iron-icon>
                 <div id="text">
-                    <content></content>
+                    <slot></slot>
                 </div>
             </div>
         </one-link>
@@ -43,24 +44,28 @@
     </template>
 
     <script>
-        Polymer({
-            is: 'one-navbar-item',
-            properties: {
-                url: {
-                    type: String,
-                },
-                icon: {
-                    type: String
-                },
-                iconPosition: {
-                    type: String,
-                    value: "left"
-                }
-            },
-            attached: function() {
+        class OneNavbarItem extends Polymer.Element {
+            static get is() { return "one-navbar-item"; }
+            static get properties() {
+                return {
+                    url: {
+                        type: String,
+                    },
+                    icon: {
+                        type: String
+                    },
+                    iconPosition: {
+                        type: String,
+                        value: "left"
+                    }
+                };
+            }
+            ready() {
+                super.ready();
                 if(this.icon) this.hideIcon = false;
                 else this.hideIcon = true;
             }
-        });
+        }
+        customElements.define(OneNavbarItem.is, OneNavbarItem);
     </script>
 </dom-module>

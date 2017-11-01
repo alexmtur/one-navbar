@@ -1,8 +1,12 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../app-route/app-route.html">
+<link rel="import" href="one-navbar-item.html">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
 <dom-module id="one-navbar">
     <template>
+    <!-- scoped CSS for this element -->
         <style>
             :host > * {
                 background: var(--one-background, #333);
@@ -59,9 +63,10 @@
                 /*width: 100%;*/
                 justify-content: space-between;
                 align-items: center;
+                padding: 0 5px 0 5px;
             }
             #brand iron-icon{
-                width: var(--one-icon-size, 30px);
+                width: var(--one-icon-size, 20px);
                 height: auto;
             }
             #logo {
@@ -71,19 +76,19 @@
                 padding: 5px;
                 display: none;
                 cursor: pointer;
+                fill: var(--one-icon-color, white);
             }
             #navbar {
                 display: flex;
             }
-
         </style>
         <nav id="navbar">
             <div id="brand">
                 <div id="logo">
                     <slot name="logo"></slot>
                 </div>
-                <iron-icon icon="icons:menu" id="menu" on-tap="toggle"></iron-icon>
-                <iron-icon icon="icons:cross" id="close" on-tap="toggle"></iron-icon>
+                <iron-icon icon="one-iconset:menu" id="menu" on-click="toggle"></iron-icon>
+                <iron-icon icon="one-iconset:cross" id="close" on-click="toggle"></iron-icon>
             </div>
             <ul id="content" hidden$="{{open}}">
                 <slot id="links"></slot>
@@ -92,38 +97,41 @@
     </template>
 
     <script>
-        Polymer({
-            is: 'one-navbar',
-            properties: {
-                sticky: {
-                    type: Boolean,
-                    value: false,
-                },
-                vertical: {
-                    type: Boolean,
-                    value: false,
-                },
-                mobileWidth: {
-                    type: Number,
-                    value: 0,
-                },
-                icon: {
-                    type: String
-                },
-                iconPosition: {
-                    type: String,
-                    value: "left"
-                },
-                hide: {
-                    type: Boolean,
-                    value: true,
-                    notify: true,
-                    reflectToAttribute: true
-                }
-            },
-            toggle: function () {
+        class OneNavbar extends Polymer.Element {
+            static get is() { return "one-navbar"; }
+            static get properties() {
+                return {
+                    sticky: {
+                        type: Boolean,
+                        value: false,
+                    },
+                    vertical: {
+                        type: Boolean,
+                        value: false,
+                    },
+                    mobileWidth: {
+                        type: Number,
+                        value: 0,
+                    },
+                    icon: {
+                        type: String
+                    },
+                    iconPosition: {
+                        type: String,
+                        value: "left"
+                    },
+                    hide: {
+                        type: Boolean,
+                        value: true,
+                        notify: true,
+                        reflectToAttribute: true
+                    }
+                };
+            }
+            toggle() {
                 this.hide = !this.hide;
             }
-        });
+        }
+        customElements.define(OneNavbar.is, OneNavbar);
     </script>
 </dom-module>
